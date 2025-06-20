@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的文字備份首頁</title>
   <style>
     body {
@@ -14,6 +15,14 @@
     h1 {
       color: #333;
       text-align: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.75em;
+      margin-bottom: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
     }
     ul {
       list-style: none;
@@ -39,18 +48,32 @@
 <body>
 
 <h1>📁 我的文字備份</h1>
-<p>請點選以下任一筆資料瀏覽：</p>
+<p>請輸入關鍵字快速搜尋：</p>
+<input type="text" id="searchInput" placeholder="搜尋姓名、日期、主題等..." onkeyup="filterList()">
 
-<ul>
+<ul id="dataList">
   <li><a href="chats/chat-20250619.html">🗨️ 聊天記錄：2025/06/19</a></li>
   <li><a href="test-chat.html">黎初衡</a></li>
   <li><a href="https://chatgpt.com/share/6854a202-7d30-8012-a8f5-7ba6f2f1dd76">🧠 靈感備忘錄444444</a></li>
   <li><a href="test12.html">周晏慈</a></li>
-   <li><a href="test123.html">白紀宣</a></li>
-    <li><a href="Li_You-Chen.html">黎佑辰</a></li>
-  
-  <!-- 你可以在這裡繼續加更多連結 -->
+  <li><a href="test123.html">白紀宣</a></li>
+  <li><a href="Li_You-Chen.html">黎佑辰</a></li>
 </ul>
+
+<script>
+function filterList() {
+  const input = document.getElementById("searchInput");
+  const filter = input.value.toLowerCase();
+  const ul = document.getElementById("dataList");
+  const li = ul.getElementsByTagName("li");
+
+  for (let i = 0; i < li.length; i++) {
+    const a = li[i].getElementsByTagName("a")[0];
+    const text = a.textContent || a.innerText;
+    li[i].style.display = text.toLowerCase().includes(filter) ? "" : "none";
+  }
+}
+</script>
 
 </body>
 </html>
