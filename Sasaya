@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sasaya先生、台湾へようこそ！</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', 'Noto Sans JP', sans-serif;
+        }
+        .bg-pattern {
+            background-color: #f8f9fa;
+            background-image:
+                linear-gradient(45deg, #e9ecef 25%, transparent 25%),
+                linear-gradient(-45deg, #e9ecef 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #e9ecef 75%),
+                linear-gradient(-45deg, transparent 75%, #e9ecef 75%);
+            background-size: 20px 20px;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .quiz-option {
+            transition: all 0.2s ease-in-out;
+        }
+        .quiz-option:hover:not(:disabled) {
+            background-color: #fde68a;
+            transform: scale(1.05);
+        }
+        .quiz-option:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        .correct {
+            background-color: #4ade80 !important;
+            color: white !important;
+        }
+        .incorrect {
+            background-color: #f87171 !important;
+            color: white !important;
+        }
+        .lang-switch button.active-lang {
+            font-weight: bold;
+            color: #0d9488;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-teal-600 flex items-center gap-3">
+                <img src="https://i.imgur.com/sC0zt2s.png" alt="Ryan Icon" class="rounded-full w-10 h-10">
+                <span>for Sasaya先生</span>
+            </div>
+            <div class="flex items-center">
+                <div class="hidden md:flex space-x-8 mr-8">
+                    <a href="#about-us" data-key="nav_about" class="text-gray-600 hover:text-teal-500 transition duration-300">我們的介紹</a>
+                    <a href="#itinerary" data-key="nav_plan" class="text-gray-600 hover:text-teal-500 transition duration-300">我們的約定</a>
+                    <a href="#memories" data-key="nav_memories" class="text-gray-600 hover:text-teal-500 transition duration-300">回憶精選</a>
+                    <a href="#quiz" data-key="nav_quiz" class="text-gray-600 hover:text-teal-500 transition duration-300">趣味小測驗</a>
+                    <a href="#messages" data-key="nav_messages" class="text-gray-600 hover:text-teal-500 transition duration-300">給您的話</a>
+                </div>
+                <div class="lang-switch text-sm text-gray-500">
+                    <button id="lang-zh" class="hover:text-teal-600">繁體中文</button>
+                    <span>|</span>
+                    <button id="lang-ja" class="hover:text-teal-600">日本語</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-32 md:py-48 relative overflow-hidden text-white" style="background-image: url('https://i.postimg.cc/Wbx2n941/IMG-1628.jpg'); background-size: cover; background-position: center;">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        
+        <div class="container mx-auto px-6 text-center z-10 relative">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4" data-key="hero_title" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.6);">
+                Sasaya先生、台湾へようこそ！
+            </h1>
+            <p class="text-lg md:text-xl" data-key="hero_subtitle" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.6);">
+                我們好想您！終於等到您要來台灣和我們見面了！
+            </p>
+        </div>
+        <img src="https://i.postimg.cc/ZqnPPKsN/6f76bfa4b2ca165b480c9c1907e6eb-unscreen.gif" alt="等待的Ryan" class="absolute -bottom-4 right-5 md:right-10 w-32 md:w-48 z-10">
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+
+        <!-- About Us Section -->
+        <section id="about-us" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-12" data-key="about_title">來自嘉義大學的我們</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center transition duration-300 card-hover"><img src="https://i.postimg.cc/SsYwvd50/IMG-0217.jpg" alt="葉怡嫻的照片" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-teal-200 object-cover"><h3 class="text-xl font-bold mb-2">葉怡嫻</h3><p class="text-gray-600" data-key="student_a_desc">嘉義大學的美食探索家，帶您吃遍道地小吃！</p></div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center transition duration-300 card-hover"><img src="https://i.postimg.cc/G38cWJYk/IMG-0214.jpg" alt="朱書靚的照片" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-sky-200 object-cover"><h3 class="text-xl font-bold mb-2">朱書靚</h3><p class="text-gray-600" data-key="student_b_desc">嘉義大學的歷史文化迷，跟您分享在地的故事。</p></div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center transition duration-300 card-hover"><img src="https://i.postimg.cc/zGd6D4YG/IMG-0215.jpg" alt="劉芷瑩的照片" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-red-200 object-cover"><h3 class="text-xl font-bold mb-2">劉芷瑩</h3><p class="text-gray-600" data-key="student_c_desc">嘉義大學的戶外探險王，最懂哪裡有秘境風景。</p></div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center transition duration-300 card-hover"><img src="https://i.postimg.cc/Pq97YZqF/IMG-0216.jpg" alt="陳品瑜的照片" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-amber-200 object-cover"><h3 class="text-xl font-bold mb-2">陳品瑜</h3><p class="text-gray-600" data-key="student_d_desc">嘉義大學的城市漫遊者，帶您發現巷弄的驚喜。</p></div>
+            </div>
+        </section>
+
+        <!-- Itinerary Section -->
+        <section id="itinerary" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-12" data-key="plan_title">與您相約的午後</h2>
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 text-center">
+                <svg class="mx-auto h-20 w-20" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="90" fill="#F7C03B"/><path d="M65 60C65 54.4772 69.4772 50 75 50C80.5228 50 85 54.4772 85 60" stroke="black" stroke-width="8" stroke-linecap="round"/><path d="M115 60C115 54.4772 119.477 50 125 50C130.523 50 135 54.4772 135 60" stroke="black" stroke-width="8" stroke-linecap="round"/><circle cx="80" cy="90" r="5" fill="black"/><circle cx="120" cy="90" r="5" fill="black"/><path d="M95 110H105C107.761 110 110 112.239 110 115V115C110 117.761 107.761 120 105 120H95C92.2386 120 90 117.761 90 115V115C90 112.239 92.2386 110 95 110Z" fill="white"/></svg>
+                <h3 class="text-2xl font-bold mt-4 mb-2" data-key="plan_subtitle">我們的豆花之約</h3>
+                <p class="text-gray-600 leading-relaxed" data-key="plan_desc">教授，雖然我們課業繁忙，只能空出一個下午的時間，但我們心中最想做的事，就是和您一起去吃我們最愛的嘉義豆花，好好地聊一聊彼此的近況。<br><br>我們也為您準備了一份充滿心意的小禮物，希望能給您一個驚喜！</p>
+            </div>
+        </section>
+
+        <!-- Gemini API Section -->
+        <section id="gemini-fun-facts" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-4" data-key="gemini_title">✨ 嘉義風情話</h2>
+            <p class="text-center text-gray-600 mb-8" data-key="gemini_subtitle">對嘉義或台灣有什麼好奇的嗎？讓 AI 為您解答！</p>
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
+                <div class="flex flex-col sm:flex-row gap-4 mb-4">
+                    <input type="text" id="gemini-prompt" class="flex-grow border-2 border-gray-300 rounded-lg p-3 focus:ring-teal-500 focus:border-teal-500" placeholder="例如：嘉義有什麼必買的伴手禮？">
+                    <button id="gemini-submit" class="bg-teal-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-teal-600 transition duration-300 shadow-lg flex items-center justify-center">
+                        <span data-key="gemini_button">發問！</span>
+                    </button>
+                </div>
+                <div id="gemini-loading" class="text-center text-gray-500 hidden my-4">
+                    <svg class="animate-spin h-5 w-5 mr-3 inline-block" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span data-key="gemini_loading">AI 思考中...</span>
+                </div>
+                <div id="gemini-response" class="mt-4 bg-gray-100 rounded-lg p-4 text-gray-700 min-h-[50px]"></div>
+            </div>
+        </section>
+
+        <!-- Memories Section -->
+        <section id="memories" class="mb-20 text-center">
+            <h2 class="text-3xl font-bold text-center mb-4" data-key="memories_title">我們的印尼回憶精選</h2>
+            <p class="text-center text-gray-600 mb-12" data-key="memories_subtitle">這裡是一些我們特別喜歡的瞬間！</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-md"><img src="https://placehold.co/600x400/818cf8/ffffff?text=印尼回憶+1" alt="印尼回憶 1" class="w-full h-full object-cover transform hover:scale-110 transition duration-300"></div>
+                <div class="overflow-hidden rounded-lg shadow-md"><img src="https://placehold.co/600x400/f472b6/ffffff?text=印尼回憶+2" alt="印尼回憶 2" class="w-full h-full object-cover transform hover:scale-110 transition duration-300"></div>
+                <div class="overflow-hidden rounded-lg shadow-md"><img src="https://placehold.co/600x400/fbbf24/ffffff?text=印尼回憶+3" alt="印尼回憶 3" class="w-full h-full object-cover transform hover:scale-110 transition duration-300"></div>
+                <div class="overflow-hidden rounded-lg shadow-md"><img src="https://placehold.co/600x400/4ade80/ffffff?text=印尼回憶+4" alt="印尼回憶 4" class="w-full h-full object-cover transform hover:scale-110 transition duration-300"></div>
+            </div>
+            <a href="gallery.html" class="mt-8 inline-block bg-teal-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-teal-600 transition duration-300 shadow-lg" data-key="memories_button">
+                查看完整相簿 &rarr;
+            </a>
+        </section>
+        
+        <!-- Quiz Section -->
+        <section id="quiz" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-12" data-key="quiz_title">關於我們的趣味小測驗</h2>
+            <div class="max-w-2xl mx-auto space-y-8">
+                <div class="bg-white p-6 rounded-lg shadow-md"><p class="font-bold text-lg mb-4" data-key="q1_text">問題一：請問，我們之中誰最可能是「美食雷達」，總能找到最好吃的巷弄小吃？</p><div id="q1-options" class="grid grid-cols-2 gap-4"><button onclick="checkAnswer(1, 'A')" class="quiz-option bg-gray-200 p-3 rounded-lg font-semibold">葉怡嫻</button><button onclick="checkAnswer(1, 'B')" class="quiz-option bg-gray-200 p-3 rounded-lg font-semibold">朱書靚</button><button onclick="checkAnswer(1, 'C')" class="quiz-option bg-gray-200 p-3 rounded-lg font-semibold">劉芷瑩</button><button onclick="checkAnswer(1, 'D')" class="quiz-option bg-gray-200 p-3 rounded-lg font-semibold">陳品瑜</button></div><p id="q1-result" class="mt-4 font-bold hidden"></p></div>
+                <div class="bg-white p-6 rounded-lg shadow-md"><p class="font-bold text-lg mb-4" data-key="q2_text">問題二：在印尼的時候，是誰最常用一句印尼話逗得大家哈哈大笑？</p><div id="q2-options" class="grid grid-cols-2 gap-4"><button onclick="checkAnswer(2, 'A')" class="quiz-option bg-gray-200 p-3 rounded-lg font-semibold">葉怡嫻</button><button onclick="checkAnswer(2, 'B')" class="quiz-option bg-gray-200 p-3 rounded-lg font-semibold">朱書靚</button><button onclick="checkAnswer(2, 'C')" class="quiz-option bg-gray-200 p-3 rounded-lg font-semibold">劉芷瑩</button><button onclick="checkAnswer(2, 'D')" class="quiz-option bg-gray-200 p-3 rounded-lg font-semibold">陳品瑜</button></div><p id="q2-result" class="mt-4 font-bold hidden"></p></div>
+                <div class="bg-white p-6 rounded-lg shadow-md"><p class="font-bold text-lg mb-4" data-key="q3_text">問題三：我們約好要一起去吃什麼台灣甜點呢？</p><div id="q3-options" class="grid grid-cols-2 gap-4"><button onclick="checkAnswer(3, 'Bubble Tea')" class="quiz-option bg-gray-200 p-3 rounded-lg font-semibold" data-key="q3_op1">珍珠奶茶</button><button onclick="checkAnswer(3, 'Mango Ice')" class="quiz-option bg-gray-200 p-3 rounded-lg font-semibold" data-key="q3_op2">芒果冰</button><button onclick="checkAnswer(3, 'Tofu Pudding')" class="quiz-option bg-gray-200 p-3 rounded-lg font-semibold" data-key="q3_op3">豆花</button><button onclick="checkAnswer(3, 'Wheel Cakes')" class="quiz-option bg-gray-200 p-3 rounded-lg font-semibold" data-key="q3_op4">車輪餅</button></div><p id="q3-result" class="mt-4 font-bold hidden"></p></div>
+            </div>
+        </section>
+
+        <!-- Messages Section -->
+        <section id="messages">
+            <h2 class="text-3xl font-bold text-center mb-12" data-key="messages_title">我們有話想對您說...</h2>
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4"><img src="https://i.postimg.cc/SsYwvd50/IMG-0217.jpg" class="w-16 h-16 rounded-full flex-shrink-0 object-cover" alt="葉怡嫻 的頭像"><div><h4 class="font-bold text-lg text-teal-700" data-key="msg_a_from">來自 葉怡嫻 的訊息</h4><p class="text-gray-600 mt-2" data-key="msg_a_content">「教授！自從印尼一別，我們都非常想念您。超級期待和您一起去吃豆花的那個下午！」</p></div></div>
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4"><img src="https://i.postimg.cc/G38cWJYk/IMG-0214.jpg" class="w-16 h-16 rounded-full flex-shrink-0 object-cover" alt="朱書靚 的頭像"><div><h4 class="font-bold text-lg text-sky-700" data-key="msg_b_from">來自 朱書靚 的訊息</h4><p class="text-gray-600 mt-2" data-key="msg_b_content">「很高興您能來台灣。我已經迫不及待想和您分享我最近在課堂上學到的有趣歷史故事了！」</p></div></div>
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4"><img src="https://i.postimg.cc/zGd6D4YG/IMG-0215.jpg" class="w-16 h-16 rounded-full flex-shrink-0 object-cover" alt="劉芷瑩 的頭像"><div><h4 class="font-bold text-lg text-red-700" data-key="msg_c_from">來自 劉芷瑩 的訊息</h4><p class="text-gray-600 mt-2" data-key="msg_c_content">「台灣的山和海非常美，希望能有機會和您一起去郊外走走，放鬆心情。」</p></div></div>
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4"><img src="https://i.postimg.cc/Pq97YZqF/IMG-0216.jpg" class="w-16 h-16 rounded-full flex-shrink-0 object-cover" alt="陳品瑜 的頭像"><div><h4 class="font-bold text-lg text-amber-700" data-key="msg_d_from">來自 陳品瑜 的訊息</h4><p class="text-gray-600 mt-2" data-key="msg_d_content">「教授，歡迎來我家鄉！除了有名的景點，我也想帶您看看我們平常生活的有趣角落。」</p></div></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-20">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p class="text-2xl font-bold mb-2" data-key="footer_greeting">期待與您在台灣相見！</p>
+            <p data-key="footer_greeting_ja">台湾で会えるのを楽しみにしています！</p>
+            <div class="mt-4"><p data-key="footer_contact">有任何問題，請隨時聯絡我們！</p><p class="text-gray-400 mt-2" data-key="footer_contact_info">聯絡方式：[在這裡填入你們的聯絡方式]</p></div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            zh: {
+                nav_about: '我們的介紹', nav_plan: '我們的約定', nav_memories: '回憶精選', nav_quiz: '趣味小測驗', nav_messages: '給您的話',
+                hero_title: 'Sasaya先生、台湾へようこそ！', hero_subtitle: '我們好想您！終於等到您要來台灣和我們見面了！',
+                about_title: '來自嘉義大學的我們',
+                student_a_desc: '嘉義大學的美食探索家，帶您吃遍道地小吃！',
+                student_b_desc: '嘉義大學的歷史文化迷，跟您分享在地的故事。',
+                student_c_desc: '嘉義大學的戶外探險王，最懂哪裡有秘境風景。',
+                student_d_desc: '嘉義大學的城市漫遊者，帶您發現巷弄的驚喜。',
+                plan_title: '與您相約的午後', plan_subtitle: '我們的豆花之約',
+                plan_desc: '教授，雖然我們課業繁忙，只能空出一個下午的時間，但我們心中最想做的事，就是和您一起去吃我們最愛的嘉義豆花，好好地聊一聊彼此的近況。<br><br>我們也為您準備了一份充滿心意的小禮物，希望能給您一個驚喜！',
+                gemini_title: '✨ 嘉義風情話', gemini_subtitle: '對嘉義或台灣有什麼好奇的嗎？讓 AI 為您解答！', gemini_button: '發問！', gemini_loading: 'AI 思考中...',
+                memories_title: '我們的印尼回憶精選', memories_subtitle: '這裡是一些我們特別喜歡的瞬間！', memories_button: '查看完整相簿 &rarr;',
+                quiz_title: '關於我們的趣味小測驗',
+                q1_text: '問題一：請問，我們之中誰最可能是「美食雷達」，總能找到最好吃的巷弄小吃？',
+                q2_text: '問題二：在印尼的時候，是誰最常用一句印尼話逗得大家哈哈大笑？',
+                q3_text: '問題三：我們約好要一起去吃什麼台灣甜點呢？',
+                q3_op1: '珍珠奶茶', q3_op2: '芒果冰', q3_op3: '豆花', q3_op4: '車輪餅',
+                quiz_correct: '答對了！您真了解我們！', quiz_incorrect: '答錯了，不過沒關係！',
+                messages_title: '我們有話想對您說...',
+                msg_a_from: '來自 葉怡嫻 的訊息', msg_a_content: '「教授！自從印尼一別，我們都非常想念您。超級期待和您一起去吃豆花的那個下午！」',
+                msg_b_from: '來自 朱書靚 的訊息', msg_b_content: '「很高興您能來台灣。我已經迫不及待想和您分享我最近在課堂上學到的有趣歷史故事了！」',
+                msg_c_from: '來自 劉芷瑩 的訊息', msg_c_content: '「台灣的山和海非常美，希望能有機會和您一起去郊外走走，放鬆心情。」',
+                msg_d_from: '來自 陳品瑜 的訊息', msg_d_content: '「教授，歡迎來我家鄉！除了有名的景點，我也想帶您看看我們平常生活的有趣角落。」',
+                footer_greeting: '期待與您在台灣相見！', footer_greeting_ja: '台湾で会えるのを楽しみにしています！', footer_contact: '有任何問題，請隨時聯絡我們！', footer_contact_info: '聯絡方式：[在這裡填入你們的聯絡方式]',
+            },
+            ja: {
+                nav_about: '私たちの紹介', nav_plan: '私たちの約束', nav_memories: '思い出のベストショット', nav_quiz: 'ミニクイズ', nav_messages: '先生へのメッセージ',
+                hero_title: 'Sasaya先生、台湾へようこそ！', hero_subtitle: '先生に会いたかったです！やっと台湾で再会できるのを、心から待っていました！',
+                about_title: '嘉義大学の私たち',
+                student_a_desc: '嘉義大学のグルメ専門家。美味しいローカルフードをご案内します！',
+                student_b_desc: '嘉義大学の歴史文化ファン。この土地の物語をシェアします。',
+                student_c_desc: '嘉義大学のアウトドア冒険王。絶景スポットならお任せください。',
+                student_d_desc: '嘉義大学の街歩き名人。路地の驚きを一緒に発見しましょう。',
+                plan_title: '午後の約束', plan_subtitle: '私たちの豆花デート',
+                plan_desc: '先生、授業で忙しく、午後の時間しか取れませんが、私たちが一番したいことは、先生と一緒に大好きな嘉義の豆花を食べながら、近況を語り合うことです。<br><br>心ばかりのプレゼントも用意しましたので、サプライズになれば嬉しいです！',
+                gemini_title: '✨ 嘉義の豆知識', gemini_subtitle: '嘉義や台湾について何か知りたいことはありますか？AIにお任せください！', gemini_button: '質問する', gemini_loading: 'AIが考えています...',
+                memories_title: '私たちのインドネシア思い出のベストショット', memories_subtitle: '私たちが特に気に入っている瞬間です！', memories_button: '全ての写真を見る &rarr;',
+                quiz_title: '私たちに関するミニクイズ',
+                q1_text: '質問1：私たちの中で、最も美味しい路地裏グルメを見つける「グルメレーダー」は誰でしょう？',
+                q2_text: '質問2：インドネシアにいた時、インドネシア語の一言で皆を一番笑わせたのは誰でしょう？',
+                q3_text: '質問3：私たちが一緒に食べに行くと約束した台湾のデザートは何でしょう？',
+                q3_op1: 'タピオカミルクティー', q3_op2: 'マンゴーかき氷', q3_op3: '豆花', q3_op4: '今川焼き',
+                quiz_correct: '正解です！さすが先生！', quiz_incorrect: '残念、不正解です！',
+                messages_title: '先生へのメッセージ...',
+                msg_a_from: '葉怡嫻からのメッセージ', msg_a_content: '「先生！インドネシアで別れて以来、ずっと会いたかったです。一緒に豆花を食べる午後を、ものすごく楽しみにしています！」',
+                msg_b_from: '朱書靚からのメッセージ', msg_b_content: '「台湾へようこそ。最近授業で学んだ面白い歴史の話をシェアするのが待ちきれません！」',
+                msg_c_from: '劉芷瑩からのメッセージ', msg_c_content: '「台湾の山と海はとても美しいです。機会があれば、一緒に郊外を散歩してリラックスしたいです。」',
+                msg_d_from: '陳品瑜からのメッセージ', msg_d_content: '「先生、私の故郷へようこそ！有名な観光地のほか、私たちが普段生活している面白い場所も案内したいです。」',
+                footer_greeting: '台湾で会えるのを楽しみにしています！', footer_greeting_ja: '期待與您在台灣相見！', footer_contact: '何か質問があれば、いつでもご連絡ください！', footer_contact_info: '連絡先：[ここに連絡先を記入してください]',
+            }
+        };
+
+        const langZhBtn = document.getElementById('lang-zh');
+        const langJaBtn = document.getElementById('lang-ja');
+        const geminiPromptInputEl = document.getElementById('gemini-prompt');
+
+        const setLanguage = (lang) => {
+            document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'ja';
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            if (lang === 'zh') {
+                langZhBtn.classList.add('active-lang');
+                langJaBtn.classList.remove('active-lang');
+                geminiPromptInputEl.placeholder = "例如：嘉義有什麼必買的伴手禮？";
+            } else {
+                langJaBtn.classList.add('active-lang');
+                langZhBtn.classList.remove('active-lang');
+                geminiPromptInputEl.placeholder = "例：嘉義で必ず買うべきお土産は何ですか？";
+            }
+            localStorage.setItem('language', lang);
+        };
+        
+        langZhBtn.addEventListener('click', () => setLanguage('zh'));
+        langJaBtn.addEventListener('click', () => setLanguage('ja'));
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('language') || 'zh';
+            setLanguage(savedLang);
+        });
+
+        // Quiz Logic
+        const correctAnswers = { 1: 'A', 2: 'C', 3: 'Tofu Pudding' };
+        function checkAnswer(questionNumber, selectedAnswer) {
+            const currentLang = localStorage.getItem('language') || 'zh';
+            const resultElement = document.getElementById(`q${questionNumber}-result`);
+            const optionsContainer = document.getElementById(`q${questionNumber}-options`);
+            const buttons = optionsContainer.getElementsByTagName('button');
+            const correctAnswer = correctAnswers[questionNumber];
+            for (let button of buttons) {
+                button.disabled = true;
+                const answerValue = button.onclick.toString().includes("'A'") ? 'A' :
+                    button.onclick.toString().includes("'B'") ? 'B' :
+                    button.onclick.toString().includes("'C'") ? 'C' :
+                    button.onclick.toString().includes("'D'") ? 'D' :
+                    button.getAttribute('data-key') === 'q3_op3' ? 'Tofu Pudding' : 
+                    button.getAttribute('data-key') === 'q3_op1' ? 'Bubble Tea' : 
+                    button.getAttribute('data-key') === 'q3_op2' ? 'Mango Ice' : 'Wheel Cakes';
+                if (answerValue === correctAnswer) { button.classList.add('correct'); }
+            }
+            if (selectedAnswer === correctAnswer) {
+                resultElement.textContent = translations[currentLang].quiz_correct;
+                resultElement.style.color = '#16a34a';
+            } else {
+                resultElement.textContent = translations[currentLang].quiz_incorrect;
+                resultElement.style.color = '#ef4444';
+                for (let button of buttons) { if (button.onclick.toString().includes(`'${selectedAnswer}'`)) { button.classList.add('incorrect'); break; } }
+            }
+            resultElement.classList.remove('hidden');
+        }
+
+        // Gemini API Logic
+        const geminiSubmitBtn = document.getElementById('gemini-submit');
+        const geminiPromptInput = document.getElementById('gemini-prompt');
+        const geminiResponseContainer = document.getElementById('gemini-response');
+        const geminiLoadingIndicator = document.getElementById('gemini-loading');
+
+        async function callGemini(prompt) {
+            geminiResponseContainer.textContent = '';
+            geminiLoadingIndicator.classList.remove('hidden');
+            geminiSubmitBtn.disabled = true;
+
+            const apiKey = ""; // API 金鑰留空
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const systemPrompt = "You are a friendly and knowledgeable tour guide for Chiayi, Taiwan. You are helping Professor Sasaya, who is visiting his students (葉怡嫻, 朱書靚, 劉芷瑩, 陳品瑜). Answer his questions about Chiayi or Taiwan concisely and cheerfully in a single paragraph. Respond in the language of the user's query (Traditional Chinese or Japanese).";
+
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                tools: [{ "google_search": {} }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API call failed with status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    const text = candidate.content.parts[0].text;
+                    geminiResponseContainer.textContent = text;
+                } else {
+                    geminiResponseContainer.textContent = '抱歉，無法生成回覆。請再試一次。';
+                    console.error('Unexpected API response structure:', result);
+                }
+
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                geminiResponseContainer.textContent = '發生錯誤，請查看主控台以獲取詳細資訊。';
+            } finally {
+                geminiLoadingIndicator.classList.add('hidden');
+                geminiSubmitBtn.disabled = false;
+            }
+        }
+
+        geminiSubmitBtn.addEventListener('click', () => {
+            const userPrompt = geminiPromptInput.value.trim();
+            if (userPrompt) {
+                callGemini(userPrompt);
+            }
+        });
+    </script>
+</body>
+</html>
+
